@@ -11,7 +11,7 @@
  * getCohort({cohort: 3476, name: "Charlie"}); // 3476
  */
 export function getCohort(student) {
-  // TODO
+  return student["cohort"];
 }
 
 /**
@@ -29,8 +29,19 @@ export function getCohort(student) {
  * @example
  * sortStudents({cohort: 1, name: "Alice"}, {cohort: 2, name: "Alice"}); // {cohort: 1, name: "Alice"}
  */
+/*I can't figure how to make the caps sensitive test pass. I will try later if I can. But I have already spent too much time on this so I'm going to focus on something else for now*/
 export function sortStudents(studentA, studentB) {
-  // TODO
+  const names = [studentA.name, studentB.name];
+  const sortedNames = names.sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase()),
+  );
+  if (sortedNames[0] === studentA.name) {
+    return studentA;
+  } else if (sortedNames[0] === studentB.name) {
+    return studentB;
+  } else {
+    return "";
+  }
 }
 
 /**
@@ -47,7 +58,10 @@ export function sortStudents(studentA, studentB) {
  * makeFlag("yellow", "triangle"); // { color: "yellow", icon: "triangle" }
  */
 export function makeFlag(color, icon) {
-  // TODO
+  let finObject = {};
+  finObject.color = color;
+  finObject.icon = icon;
+  return finObject;
 }
 
 /**
@@ -63,7 +77,8 @@ export function makeFlag(color, icon) {
  * increment({value: -5}); // {value: -4}
  */
 export function increment(count) {
-  // TODO
+  count.value += 1;
+  return count;
 }
 
 /**
@@ -90,7 +105,9 @@ export function increment(count) {
  *
  */
 export function getTaxicabDistance(from, to) {
-  // TODO
+  let dist1 = Math.abs(from.x - to.x);
+  let dist2 = Math.abs(from.y - to.y);
+  return dist1 + dist2;
 }
 
 /**
@@ -106,7 +123,13 @@ export function getTaxicabDistance(from, to) {
  * getHerbivores([{name: "Rabbit", isHerbivore: true}]); // [{name: "Rabbit", isHerbivore: true}]
  */
 export function getHerbivores(animals) {
-  // TODO
+  let finObject = [];
+  for (let i = 0; i < animals.length; i++) {
+    if (animals[i].isHerbivore === true) {
+      finObject[i] = animals[i];
+    }
+  }
+  return finObject;
 }
 
 /**
@@ -122,7 +145,13 @@ export function getHerbivores(animals) {
  * getCarnivoreNames([{name: "Wolf", isCarnivore: true}]); // ["Wolf"]
  */
 export function getCarnivoreNames(animals) {
-  // TODO
+  let finName = [];
+  for (let i = 0; i < animals.length; i++) {
+    if (animals[i].isCarnivore) {
+      finName.push(animals[i].name);
+    }
+  }
+  return finName;
 }
 
 /**
@@ -143,7 +172,13 @@ export function getCarnivoreNames(animals) {
  * getTotalCost([{name: "Notebook", quantity: 0, price: 5}]); // 0
  */
 export function getTotalCost(cart) {
-  // TODO
+  let cartTotal = 0;
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].quantity > 0) {
+      cartTotal += cart[i].price * cart[i].quantity;
+    }
+  }
+  return cartTotal;
 }
 
 /**
@@ -163,7 +198,13 @@ export function getTotalCost(cart) {
  * zip(["x"], ["x"]); // {x: "x"}
  */
 export function zip(keys, values) {
-  // TODO
+  let zipped = {};
+  for (let i = 0; i < zip.length; i++) {
+    let key = keys[i];
+    let value = values[i];
+    zipped[key] = value;
+  }
+  return zipped;
 }
 
 /**
@@ -179,5 +220,14 @@ export function zip(keys, values) {
  * countCharacters("aAa"); // {a: 2, A: 1}
  */
 export function countCharacters(word) {
-  // TODO
+  const count = {};
+  for (let i = 0; i < word.length; i++) {
+    let char = word[i];
+    if (!(char in count)) {
+      count[char] = 1;
+    } else {
+      count[char]++;
+    }
+  }
+  return count;
 }
