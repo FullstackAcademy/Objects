@@ -32,12 +32,9 @@ export function getCohort(student) {
 /*I can't figure how to make the caps sensitive test pass. I will try later if I can. But I have already spent too much time on this so I'm going to focus on something else for now*/
 export function sortStudents(studentA, studentB) {
   const names = [studentA.name, studentB.name];
-  const sortedNames = names.sort((a, b) =>
-    a.toLowerCase().localeCompare(b.toLowerCase()),
-  );
-  if (sortedNames[0] === studentA.name) {
+  if (studentA.name <= studentB.name) {
     return studentA;
-  } else if (sortedNames[0] === studentB.name) {
+  } else if (studentB.name < studentA.name) {
     return studentB;
   } else {
     return "";

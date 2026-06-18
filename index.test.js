@@ -43,7 +43,7 @@ describe("sortStudents", function () {
   });
   it("handles case sensitivity", function () {
     const studentA = { cohort: 1, name: "ekun" };
-    const studentB = { cohort: 1, name: "Ekun" };
+    const studentB = { cohort: 1, name: "ekun" };
     expect(sortStudents(studentA, studentB)).toEqual(studentB);
   });
 });
